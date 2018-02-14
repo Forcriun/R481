@@ -29,5 +29,26 @@ class EjercicioR481
         return cadenaADevolver.trim();
     }
 
+    public String devolverEnOrdenClase(ArrayList<Integer> numeros)
+    {
+        String numerosOrdenados = "";
+
+        while(numeros.size() > 0){
+            int numeroMasAltoEncontradoHastaElMomento = 0;
+            int posicionNumeroMasAlto = 0;
+            for (int i=0; i < numeros.size(); i++){
+                if(numeros.get(i)>= numeroMasAltoEncontradoHastaElMomento){
+                    numeroMasAltoEncontradoHastaElMomento = numeros.get(i);
+                    posicionNumeroMasAlto = i;
+                }
+            }
+            numerosOrdenados += numeroMasAltoEncontradoHastaElMomento + ", ";
+            numeros.remove(posicionNumeroMasAlto);
+        }
+
+        return (numerosOrdenados.length()>0) ? (numerosOrdenados.substring(0, numerosOrdenados.length()-2)) : (numerosOrdenados);
+    }
+
+
     // A continuación puedes escribir otros métodos si lo necesitas...
 }
